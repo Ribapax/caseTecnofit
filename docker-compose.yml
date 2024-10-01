@@ -2,10 +2,10 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: DockerFile
     container_name: php_app
     ports:
-      - "8080:80" # Expondo a porta 8080 do host para o Apache no container
+      - "8888:80" # Expondo a porta 8080 do host para o Apache no container
     volumes:
       - ./public:/var/www/html
     depends_on:
@@ -13,17 +13,22 @@ services:
 
   db:
     image: mysql:5.7
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql # Script para inicializar o banco de dados:w
     container_name: mysql_db
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 26677
+        hard: 46677
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: 
-      MYSQL_USER: root
+      MYSQL_DATABASE: tecnofit
       MYSQL_PASSWORD: secret
     ports:
       - "3306:3306"
-    volumes:
-      - dbdata:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql # Script para inicializar o banco de dados
+    
 
 volumes:
   dbdata:

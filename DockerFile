@@ -4,6 +4,9 @@ FROM php:7.4-apache
 # Instala extensões PHP necessárias para conectar ao MySQL
 RUN docker-php-ext-install pdo pdo_mysql
 
+# Habilitar mod_rewrite no Apache
+RUN a2enmod rewrite
+
 # Copia o código da aplicação para o diretório root do Apache
 COPY ./public /var/www/html
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>API Documentation</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h1 { color: #333; }
+            pre { background-color: #f4f4f4; padding: 10px; border: 1px solid #ccc; }
+        </style>
+    </head>
+    <body>
+        <h1>API Documentation</h1>
+        <p>Welcome to the API! Below are the available endpoints:</p>
+
+        <h2>GET /movements/ranking</h2>
+        <p>Returns the ranking of users for a specific movement.</p>
+        <pre>
+GET /movements/ranking?movimento_id=1
+
+Response:
+{
+    \"movimento\": \"Agachamento\",
+    \"ranking\": [
+        {
+            \"posicao\": 1,
+            \"usuario\": \"João\",
+            \"recorde\": 200,
+            \"data\": \"2024-10-01\"
+        },
+        {
+            \"posicao\": 2,
+            \"usuario\": \"Maria\",
+            \"recorde\": 180,
+            \"data\": \"2024-09-20\"
+        },
+        {
+            \"posicao\": 3,
+            \"usuario\": \"Carlos\",
+            \"recorde\": 170,
+            \"data\": \"2024-08-15\"
+        }
+    ]
+}
+        </pre>
+
+        <h3>Parameters:</h3>
+        <ul>
+            <li><strong>movimento_id</strong> (required): The ID of the movement to retrieve the ranking for.</li>
+        </ul>
+    </body>
+    </html>
