@@ -28,11 +28,10 @@ function getRankingByMovementId(int $movementId){
     $ranking = [];
 
     if ($records[0]["user"] === null) {
-        echo json_encode([
+        return json_encode([
             'movimento' => $records[0]['movement']??"",
             'ranking' => $ranking
         ]);
-        return;
     }
 
     $position = 0; // Posição atual no ranking
