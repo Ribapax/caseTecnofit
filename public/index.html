@@ -1,51 +1,114 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <title>API Documentation</title>
-        <style>
-            body { font-family: Arial, sans-serif; margin: 40px; }
-            h1 { color: #333; }
-            pre { background-color: #f4f4f4; padding: 10px; border: 1px solid #ccc; }
-        </style>
-    </head>
-    <body>
-        <h1>API Documentation</h1>
-        <p>Welcome to the API! Below are the available endpoints:</p>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentação da API de Movimentos</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-        <h2>GET /movements/ranking</h2>
-        <p>Returns the ranking of users for a specific movement.</p>
-        <pre>
-GET /movements/ranking?movimento_id=1
+  <body>
+    <h1>Documentação da API de Movimentos</h1>
 
-Response:
-{
-    \"movimento\": \"Agachamento\",
-    \"ranking\": [
+    <p>
+      Bem-vindo à documentação da API de Movimentos. Esta API fornece dados de
+      rankings de usuários baseados em seus recordes para cada movimento
+      disponível.
+    </p>
+
+    <h2>Rotas Disponíveis</h2>
+
+    <h3>1. Obter o ranking de um movimento específico</h3>
+    <p><strong>URL:</strong> <code>/movements/{id}/ranking</code></p>
+    <p><strong>Método HTTP:</strong> <code>GET</code></p>
+    <p><strong>Parâmetro:</strong></p>
+    <ul>
+      <li><code>{id}</code> - O ID do movimento que você deseja consultar.</li>
+    </ul>
+    <button  onclick="togleHide('req')">
+      <h4>Possíveis Requisições:</h4>
+    </button>
+    <div id="req" class="req hide" >
+      <pre><code>GET <a href="/movements/1/ranking">/movements/1/ranking</a></code></pre>
+      <pre><code>GET <a href="/movements/2/ranking">/movements/2/ranking</a></code></pre>
+      <pre><code>GET <a href="/movements/3/ranking">/movements/3/ranking</a></code></pre>
+    </div>
+    <button id="examButton" onclick="togleHide('exam')">
+      <h4>Exemplo de Resposta (JSON):</h4>
+    </button>
+    <div id="exam" class="hide">
+      <pre><code>{
+        "movimento":"Deadlift",
+        "ranking":[
         {
-            \"posicao\": 1,
-            \"usuario\": \"João\",
-            \"recorde\": 200,
-            \"data\": \"2024-10-01\"
+            "posição":1,
+            "usuário:"Jose",
+            "recorde pessoal":190,
+            "data":"06/01/2021"
         },
         {
-            \"posicao\": 2,
-            \"usuario\": \"Maria\",
-            \"recorde\": 180,
-            \"data\": \"2024-09-20\"
+            "posição":2,
+            "usuário":"Joao",
+            "recorde pessoal":180,
+            "data":"04/01/2021"
         },
         {
-            \"posicao\": 3,
-            \"usuario\": \"Carlos\",
-            \"recorde\": 170,
-            \"data\": \"2024-08-15\"
-        }
-    ]
-}
-        </pre>
+            "posição":3,
+            "usuário":"Paulo",
+            "recorde pessoal":170,
+            "data":"03/01/2021"
+        }]
+    }</code></pre>
+    </div>
+    <button onclick="togleHide('desc')" >
+      <h4>Descrição da Resposta:</h4>
+    </button>
+    <div id="desc" class="hide">
+      <ul>
+        <li><strong>movimento:</strong> O nome do movimento consultado.</li>
+        <li>
+          <strong>ranking:</strong> Uma lista ordenada dos usuários e seus
+          recordes para o movimento.
+        </li>
+        <li>
+          <strong>posição:</strong> A posição do usuário no ranking (usuários
+          com o mesmo recorde ocupam a mesma posição).
+        </li>
+        <li>
+          <strong>usuario:</strong> O nome do usuário que realizou o movimento.
+        </li>
+        <li>
+          <strong>recorde pessoal:</strong> O maior valor de recorde do usuário.
+        </li>
+        <li><strong>data:</strong> A data em que o recorde foi alcançado.</li>
+      </ul>
+    </div>
+<button  onclick="togleHide('pos')">
 
-        <h3>Parameters:</h3>
-        <ul>
-            <li><strong>movimento_id</strong> (required): The ID of the movement to retrieve the ranking for.</li>
-        </ul>
-    </body>
-    </html>
+    <h4>Possíveis Erros:</h4>
+</button>
+<div id="pos" class="hide">
+
+    <ul>
+        <li>
+            <strong>404 - Movimento não encontrado:</strong> Se o ID do movimento
+            fornecido não existir.
+        </li>
+        <li>
+            <strong>500 - Erro no servidor:</strong> Qualquer erro interno que
+            ocorra ao processar a requisição.
+        </li>
+    </ul>
+</div>
+
+    <h2>Exemplo de uso com cURL</h2>
+    <p>Você pode testar a API usando a ferramenta cURL no terminal:</p>
+    <pre><code>curl http://localhost:8080/movements/1/ranking</code></pre>
+    <p>Você pode testar a API acessando esse link na url:</p>
+    <pre><code>http://localhost:8080/movements/1/ranking</code></pre>
+    <p>Você pode testar a API colocando esse link no Postman ou Insominia:</p>
+    <pre><code>http://localhost:8080/movements/1/ranking</code></pre>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+</html>

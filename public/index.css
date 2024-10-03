@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #FAF9F6;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+h4 {
+    margin: 0;
+    padding: 10px;
+}
+
+p {
+    font-size: 14px;
+}
+
+code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #d9d9d9;
+    margin: 5px;
+    text-align: justify;
+}
+.hide {
+    display: none;
+}

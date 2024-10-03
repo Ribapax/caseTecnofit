@@ -4,7 +4,7 @@ $host = 'db'; // Nome do serviço definido no docker-compose.yml
 $db = 'tecnofit';
 $user = 'root';
 $pass = 'secret';
-$charset = 'utf8mb4';
+
 
 // Conectando ao banco de dados
 $dsn = "mysql:host=$host;dbname=$db;";
