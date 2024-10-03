@@ -29,7 +29,6 @@ Este repositório contém a solução do desafio técnico para a vaga de Desenvo
    
     Entre no seu navegagor e acesse o link http://localhost:8888/ para mais informações de documentação e os endpoints da API
 
-
 ## Documentação
 ### Assunções
 
