@@ -1,0 +1,14 @@
+# Usando a imagem oficial do PHP 7.4 com Apache
+FROM php:7.4-apache
+
+# Instala extensões PHP necessárias para conectar ao MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Habilitar mod_rewrite no Apache
+RUN a2enmod rewrite
+
+# Copia o código da aplicação para o diretório root do Apache
+COPY ./public /var/www/html
+
+# Expondo a porta 80 para acesso ao servidor Apache
+EXPOSE 80
