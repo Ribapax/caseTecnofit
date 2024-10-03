@@ -42,7 +42,6 @@ Com base na primeira etapa da entrevista, algumas decisões foram tomadas:
     - Usuários com o mesmo recorde pessoal ocupam a mesma posição no ranking.
     - Em caso de empate, o usuário com o recorde mais antigo aparece primeiro na lista.
     - A posição subsequente é determinada normalmente, ou seja, após um empate em primeiro lugar, o próximo usuário estará em segundo lugar. No código, existe um trecho comentado que pode ser ativado caso seja necessário seguir um critério alternativo, onde o próximo usuário após um empate ocuparia a terceira posição.
-6. 
 
 ### Endpoints e Funcionalidades
 
